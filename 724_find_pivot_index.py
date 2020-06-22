@@ -1,4 +1,5 @@
-'''724. Find Pivot Index
+'''
+724. Find Pivot Index
 Given an array of integers nums, write a method that returns the "pivot" index of this array.
 
 We define the pivot index as the index where the sum of all the numbers to the left of the index is equal to the sum of all the numbers to the right of the index.
@@ -27,15 +28,16 @@ The length of nums will be in the range[0, 10000].
 Each element nums[i] will be an integer in the range[-1000, 1000].
 '''
 
-# approach
-# left = 0, right = sum(nums)
-# subtract nums[i] from right
-# check if right and left are equal
-# if not, add nums[i] to left
-
 
 class Solution(object):
     def pivotIndex(self, nums):
+        '''
+        approach:
+            left = 0, right = sum(nums)
+            subtract nums[i] from right
+            check if right and left are equal
+            if not, add nums[i] to left
+        '''
         left, right = 0, sum(nums)
         for i in range(len(nums)):
             right -= nums[i]
