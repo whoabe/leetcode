@@ -22,27 +22,35 @@ Explanation: The array represents the integer 4
 
 
 class Solution(object):
-    # approach
-    # converting the array into a string, then an integer, adding 1, converting back to string and then array
-    def plusOne(self, digits):
-        res = []
-        str_digits = "".join(str(i) for i in digits)
-        int_digits = int(str_digits)+1
-        str_digits = str(int_digits)
-        for i in str_digits:
-            res.append(int(i))
-        return res
+    '''
+    approach
+        1. converting the array into a string, then an integer, adding 1, converting back to string and then array
+        2. add and carry
+            loop through the digits starting from 1s place
+            if it's less than 9, add 1 and return the number
+            if not, add 0 and continue
+            if the number is 9 or 99, etc then return [1] + [0] * len(digits)
+    '''
 
-    # alternative solution
-        # for i in range(len(digits)-1, -1, -1):
-        #     if digits[i] < 9:
-        #         digits[i] += 1
-        #         return digits
-        #     digits[i] = 0
-        # return [1] + [0] * len(digits)
+    def plusOne(self, digits):
+        # res = []
+        # str_digits = "".join(str(i) for i in digits)
+        # int_digits = int(str_digits)+1
+        # str_digits = str(int_digits)
+        # for i in str_digits:
+        #     res.append(int(i))
+        # return res
+
+        # alternative solution
+        for i in range(len(digits)-1, -1, -1):
+            if digits[i] < 9:
+                digits[i] += 1
+                return digits
+            digits[i] = 0
+        return [1] + [0] * len(digits)
 
 
 if __name__ == '__main__':
     # begin
     s = Solution()
-    print(s.plusOne([1, 2, 3]))
+    print(s.plusOne([1, 2, 9]))
