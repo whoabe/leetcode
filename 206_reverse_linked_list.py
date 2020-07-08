@@ -44,16 +44,17 @@ class Solution:
         return pre
 
         # recursive
-        # base case
+        # base case. a single node is a reversed list
         if not head or not head.next:
             return head
-            # going down
+        # going down list, calling reverseList w the next node
         reversedHead = self.reverseList(head.next)
-        # reverse the head
+        # setting the next node's next to head
         head.next.next = head
-        # set next to None
+        # set next node of the head to None
         head.next = None
         return reversedHead
+        # return the reversedHead to be called in the reverseList function
 
 
 if __name__ == '__main__':

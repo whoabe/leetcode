@@ -38,6 +38,19 @@ class Solution:
         return vals = vals[::-1]
 
         # 2
+        # reverse the first half while finding the middle
+        # compare the reversed first half with the second half
+        rev = None
+        fast = slow = head
+        while fast and fast.next:
+            fast = fast.next.next
+            rev, rev.next, slow = slow, rev, slow.next
+        if fast:
+            slow = slow.next
+        while rev and rev.val == slow.val:
+            slow = slow.next
+            rev = rev.next
+        return not rev
 
 
 if __name__ == '__main__':
