@@ -35,7 +35,7 @@ class Solution:
             # head.val is a single element tuple
             #alternative is vals.append(head.val)
             head = head.next
-        return vals = vals[::-1]
+        return vals == vals[::-1]
 
         # 2
         # reverse the first half while finding the middle
