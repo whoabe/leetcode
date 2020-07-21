@@ -22,8 +22,10 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 class Solution(object):
     def maxProfit(self, prices):
+        if not prices:
+            return 0
         minP, maxP = prices[0], 0
-        for i in range(len(prices)-1):
+        for i in range(1, len(prices)):
             minP = min(minP, prices[i])
             maxP = max(maxP, prices[i] - minP)
         return maxP
@@ -32,4 +34,4 @@ class Solution(object):
 if __name__ == '__main__':
     # begin
     s = Solution()
-    print(s.maxProfit([7, 1, 5, 3, 6, 4]))
+    print(s.maxProfit([1, 2]))
