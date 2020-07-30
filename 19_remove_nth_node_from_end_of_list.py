@@ -38,6 +38,7 @@ class Solution:
         fast = slow = head
         for _ in range(n):
             fast = fast.next
+        # if the fast pointer is null, then the slow pointer is the head and we want to remove head and return head.next
         if not fast:
             return head.next
         while fast.next:

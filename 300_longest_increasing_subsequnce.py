@@ -15,6 +15,8 @@ Your algorithm should run in O(n2) complexity.
 
 '''
 approach:
+    brute force
+        find all increasing subsequences and return the max length of the longest subsequence
     dynamic programming bottom up
     
 '''
@@ -22,6 +24,18 @@ approach:
 
 class Solution(object):
     def lengthOfLIS(self, nums):
+        # Brute Force
+        # TC: O(2^N), SC: O(N)
+        # def max_lis(idx, cur_max):
+        #     if idx == len(nums):
+        #         return 0
+        #     if nums[idx] > cur_max:
+        #         return max(1 + max_lis(idx + 1, nums[idx]), max_lis(idx + 1, cur_max))
+        #     return max_lis(idx + 1, cur_max)
+        # return max_lis(0, float('-inf'))
+
+        # dynamic programming
+        # TC: O(N ^ 2), SC: O(N)
         if not nums:
             return 0
         n = len(nums)
