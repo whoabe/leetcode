@@ -32,18 +32,13 @@ Input:     1         1
 
 Output: false
 
-100. Same Tree
+def isSameTree(self, p, q):
 '''
 
 '''
 approach:
-    brute force
-        check every possible prefix of that string in dictionarym if found, call for remaining portion
-        TC: O(n^n), SC: O(n)
-    dynamic programming
-        TC: O(n^2), SC: O(n)
-        divide the problem into multiple subproblems of string s1 and s2
-        if substrings are in the dict, then mark that position as true 
+    recursion
+        TC: O(N), SC: O(N) worst case O(log(N)) if completely balanced
 '''
 
 
