@@ -35,16 +35,25 @@ def isSymmetric(self, root: TreeNode) -> bool:
 
 
 class Solution(object):
-    def isSymmetric(self, root):
-        # recursion
-        return self.isMirror(root, root)
+    # def isSymmetric(self, root):
+    #     # recursion
+    #     return self.isMirror(root, root)
 
-    def isMirror(self, left, right):
-        if not left and not right:
-            return True
-        if not left or not right:
-            return False
-        return (left.val == right.val and self.isMirror(left.left, right.right) and self.isMirror(left.right, right.left))
+    # def isMirror(self, left, right):
+    #     if not left and not right:
+    #         return True
+    #     if not left or not right:
+    #         return False
+    #     return (left.val == right.val and self.isMirror(left.left, right.right) and self.isMirror(left.right, right.left))
+
+    def isSymmetric(self, root):
+        def isMirror(left, right):
+            if not left and not right:
+                return True
+            if not left or not right:
+                return False
+            return (left.val == right.val and isMirror(left.left, right.right) and isMirror(left.right, right.left))
+        return isMirror(root, root)
 
         # iterative
         if not root:
