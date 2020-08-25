@@ -22,17 +22,9 @@ Explanation: The array represents the integer 4
 
 
 class Solution(object):
-    '''
-    approach
-        1. converting the array into a string, then an integer, adding 1, converting back to string and then array
-        2. add and carry
-            loop through the digits starting from 1s place
-            if it's less than 9, add 1 and return the number
-            if not, add 0 and continue
-            if the number is 9 or 99, etc then return [1] + [0] * len(digits)
-    '''
 
     def plusOne(self, digits):
+        # 1. converting the array into a string, then an integer, adding 1, converting back to string and then array
         # res = []
         # str_digits = "".join(str(i) for i in digits)
         # int_digits = int(str_digits)+1
@@ -40,8 +32,14 @@ class Solution(object):
         # for i in str_digits:
         #     res.append(int(i))
         # return res
-
-        # alternative solution
+        '''
+            2. add and carry
+                loop through the digits starting from 1s place
+                if it's less than 9, add 1 and return the number
+                if not, add 0 and continue
+                if the number is 9 or 99, etc then return [1] + [0] * len(digits)
+        '''
+        # TC: O(N), SC: O(1) when digits contains at least 1 not-9 digit else O(N)
         for i in range(len(digits)-1, -1, -1):
             if digits[i] < 9:
                 digits[i] += 1

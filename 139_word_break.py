@@ -41,7 +41,8 @@ class Solution(object):
     def wordBreak(self, s, wordDict):
         n = len(s)
         dic = set(wordDict)
-        dp = [False for _ in range(n+1)]
+        # dp = [False for _ in range(n+1)]
+        dp = [False] * (n+1)
         dp[0] = True
         for i in range(n):
             for j in range(i+1, n+1):

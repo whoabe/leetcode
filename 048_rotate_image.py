@@ -55,9 +55,9 @@ class Solution(object):
 
     def rotate(self, matrix):
         matrix.reverse()
-        for i in range(len(matrix)):
-            for j in range(i):
-                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        for row in range(len(matrix)):
+            for col in range(row):
+                matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
         return matrix
 
         # pythonic
