@@ -27,7 +27,8 @@ class Solution:
         return -1
 
         # dictionary2
-        # count = collections.counter(s)
+        # from collections import Counter
+        # count = collections.Counter(s)
         # for i, letter in enumerate(s):
         #     if count[letter] == 1:
         #         return i
