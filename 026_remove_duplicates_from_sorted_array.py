@@ -35,6 +35,8 @@ int len = removeDuplicates(nums);
 for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
+
+def removeDuplicates(self, nums):
 '''
 
 
@@ -49,7 +51,7 @@ class Solution:
         #     if nums[i] == nums[i+1]:
         #         nums.pop(i+1)
         #     else:
-        #         i+=1
+        #         i += 1
 
         '''
         approach:
@@ -58,10 +60,18 @@ class Solution:
             loop through the entire array checking if the current and next index item are not equal
             if they aren't equal, then replace them and then increase j by 1
         '''
+        # j = 1
+        # for i in range(len(nums)-1):
+        #     if nums[i] != nums[i+1]:
+        #         nums[j] = nums[i+1]
+        #         j += 1
+        # return j
+
+        # slightly different
         j = 1
-        for i in range(len(nums)-1):
-            if nums[i] != nums[i+1]:
-                nums[j] = nums[i+1]
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i-1]:
+                nums[j] = nums[i]
                 j += 1
         return j
 
