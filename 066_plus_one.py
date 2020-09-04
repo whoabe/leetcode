@@ -40,7 +40,8 @@ class Solution(object):
                 if the number is 9 or 99, etc then return [1] + [0] * len(digits)
         '''
         # TC: O(N), SC: O(1) when digits contains at least 1 not-9 digit else O(N)
-        for i in range(len(digits)-1, -1, -1):
+        # for i in range(len(digits)-1, -1, -1):
+        for i in reversed(range(len(digits))):
             if digits[i] < 9:
                 digits[i] += 1
                 return digits
