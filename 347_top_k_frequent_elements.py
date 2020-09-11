@@ -53,6 +53,7 @@ class Solution:
         count = Counter(nums)
         return heapq.nlargest(k, count.keys(), key=count.get)
         # heapq.nlargest(n, iterable[, key])
+        # returns list w n largest elements defined by iterable key
 
 
 if __name__ == '__main__':

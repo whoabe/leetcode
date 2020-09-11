@@ -30,14 +30,32 @@ def findDuplicate(self, nums: List[int]) -> int:
 class Solution:
     def findDuplicate(self, nums):
         '''
-        sort() has O(NlogN) worst case time complexity
+        approach 1:
+            sort() has O(NlogN) worst case time complexity
+            TC: O(NlogN)
+            SC: if input array cannot be modified, need to allocate linear space for copy of nums and sort that -> O(N). Else O(1)
         '''
         # nums.sort()
         # for i in range(1, len(nums)):
         #     if nums[i-1] == nums[i]:
         #         return nums[i]
+
         '''
-        approach is using a fast and slow runner, similar to 141: linked list cycle
+        approach 2:
+            check if element is in set, else insert element into set
+            TC: O(N)
+            SC: O(N)
+        '''
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return num
+            seen.add(num)
+        '''
+        approach 3:
+            is using a fast and slow runner, similar to 141: linked list cycle
+            TC: O(N)
+            SC: O(1)
         '''
         # start hopping from node 0
         slow, fast = 0, 0

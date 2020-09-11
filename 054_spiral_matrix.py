@@ -40,11 +40,13 @@ class Solution(object):
         dr = [0, 1, 0, -1]
         dc = [1, 0, -1, 0]
         r = c = di = 0
+        # iterate through the number of cells in R*C
         for _ in range(R*C):
             ans.append(matrix[r][c])
             seen[r][c] = True
             cr = r + dr[di]
             cc = c + dc[di]
+            # check if next row or next col are at the edge or if theyre not in seen
             if 0 <= cr < R and 0 <= cc < C and not seen[cr][cc]:
                 r, c = cr, cc
             else:
@@ -52,6 +54,12 @@ class Solution(object):
                 r = r+dr[di]
                 c = c+dc[di]
         return ans
+
+        '''
+        approach 2:
+            get the first row + the spiral order of the rotated (reversed and transpose) matrix
+        '''
+        return matrix and [*matrix.pop(0)] + self.spiralOrder([*zip(*matrix)][::-1])
 
 
 if __name__ == '__main__':
