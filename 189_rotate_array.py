@@ -6,7 +6,7 @@ Follow up:
 
 Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
 Could you do it in-place with O(1) extra space?
- 
+
 
 Example 1:
 
@@ -20,10 +20,10 @@ Example 2:
 
 Input: nums = [-1,-100,3,99], k = 2
 Output: [3,99,-1,-100]
-Explanation: 
+Explanation:
 rotate 1 steps to the right: [99,-1,-100,3]
 rotate 2 steps to the right: [3,99,-1,-100]
- 
+
 
 Constraints:
 
@@ -35,6 +35,17 @@ k >= 0
 
 class Solution:
     def rotate(self, nums, k):
+      # '''
+      # approach 1
+      #   draw out the arrays and the shifted arrays and realize that items shift by their index + the k value % the length of their numbers
+      #   the easiest solution is to use a O(n-k) space solution that holds temp values
+      # '''
+      # n = len(nums)
+      # k %= n
+      # for i in range(k):
+      #   temp = nums.pop()
+      #   nums.insert(0, temp)
+      # return nums
         '''
         approach
             k%n provides the value that the array has shifted, cant use just k because k can be greater than n
