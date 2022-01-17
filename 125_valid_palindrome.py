@@ -13,7 +13,7 @@ Example 2:
 
 Input: "race a car"
 Output: false
- 
+
 
 Constraints:
 
@@ -24,16 +24,18 @@ s consists only of printable ASCII characters.
 class Solution:
     def isPalindrome(self, s):
         # 2 pointers
-        left, right = 0, len(s)-1
-        while left < right:
-            while left < right and s[left].isalnum():
-                left += 1
-            while left < right and s[right].isalnum():
-                right -= 1
-            if left < right and s[left].islower() != s[right].islower():
-                return False
-            left += 1
-            right -= 1
+        start, end = 0, len(s)-1
+        while start < end:
+            if not s[start].isalnum():
+                start +=1
+            elif not s[end].isalnum():
+                end -=1
+            else:
+                if s[start].lower() != s[end].lower():
+                    return False
+                else:
+                    start +=1
+                    end -=1
         return True
 
         # check reverse
