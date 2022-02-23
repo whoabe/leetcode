@@ -14,7 +14,7 @@ call isBadVersion(3) -> false
 call isBadVersion(5) -> true
 call isBadVersion(4) -> true
 
-Then 4 is the first bad version. 
+Then 4 is the first bad version.
 '''
 
 
@@ -31,6 +31,15 @@ class Solution:
             else:
                 left = mid + 1
         return left
+
+        # left, right = 0, n-1
+        # while left <= right:
+        #     mid =left + (right-left)//2
+        #     if isBadVersion(mid) == False:
+        #         left= mid+1
+        #     else:
+        #         right=mid-1
+        # return left
 
 
 if __name__ == '__main__':
